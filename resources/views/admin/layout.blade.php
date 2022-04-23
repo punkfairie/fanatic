@@ -22,6 +22,20 @@
 		@endauth
 
 		<main class="l-main">
+			@yield('title')
+
+			@if (session()->has('success'))
+				<p class="success">{{ session()->get('success') }}</p>
+			@endif
+
+			@if (session()->has('error'))
+				<p class="error">{{ session()->get('error') }}</p>
+			@endif
+
+			@if (session()->has('warning'))
+				<p class="warning">{{ session()->get('warning') }}</p>
+			@endif
+
 			@yield('content')
 		</main>
 

@@ -13,6 +13,10 @@ $c-accent: #de7cff;
 $c-accent-light: color.scale($c-accent, $lightness: 40%);
 $c-accent-lightest: color.scale($c-accent, $lightness: 80%);
 
+$c-green:  #30be00;
+$c-yellow: #ebb000;
+$c-red:    #e20000;
+
 /* ------------------------------------------------------------------------------------ &BTN ---- */
 
 @mixin hover($focus: false) {

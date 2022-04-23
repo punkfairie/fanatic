@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -39,4 +40,27 @@ class Collective extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+/* -------------------------------------------------------------------------------- password ---- */
+
+	protected function password() : Attribute
+	{
+		return Attribute::make(
+			set: fn ($value) => bcrypt($value),
+		);
+	}
+
+/* ----------------------------------------------------------------------------------- store ---- */
+
+	public static function store(array $validated) : Collective
+	{
+		$collective = new Collective();
+		$collective->title    = $validated['title'];
+		$collective->name     = $validated['name'];
+		$collective->email    = $validated['email'];
+		$collective->password = $validated['password'];
+		$collective->save();
+
+		return $collective;
+	}
 }

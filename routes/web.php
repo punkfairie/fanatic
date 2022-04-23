@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CollectiveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/fanatic/install', function () {
-    return view('admin.install');
-});
+Route::get('/fanatic', [CollectiveController::class, 'dashboard'])->name('dashboard');
+Route::get('/fanatic/install', [CollectiveController::class, 'create'])->name('collectives.create');
+Route::post('/fanatic', [CollectiveController::class, 'store'])->name('collectives.store');

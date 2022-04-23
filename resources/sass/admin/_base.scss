@@ -69,3 +69,7 @@ h1 {
 .form__btn {
 	@extend %btn;
 }
+
+.form__error {
+	color: $c-red;
+}
