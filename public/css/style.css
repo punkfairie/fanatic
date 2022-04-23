@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css2?family=Imprima&family=Satisfy&display=swap);
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Imprima", sans-serif;
+  font-size: 16px;
+  background: rgb(243, 200, 255);
+  background: linear-gradient(320deg, rgb(243, 200, 255) 0%, rgb(191, 191, 255) 100%);
+}
+
+a {
+  color: #7874ff;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #de7cff;
+  transition: color 0.2s;
+}
+
+h1 {
+  font-family: "Satisfy", serif;
+  font-size: 46px;
+  font-weight: normal;
+  margin-left: 60px;
+  display: inline-block;
+  position: relative;
+}
+h1::after {
+  content: "";
+  background-color: #d7d5ff;
+  height: 15px;
+  display: block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 10%;
+  z-index: -1;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.l-container {
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  background-color: #f8f8ff;
+  border: 1px solid #7874ff;
+  z-index: -2;
+}
+
+.l-nav {
+  height: 7%;
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #7874ff;
+}
+
+.l-nav__tab {
+  flex-grow: 1;
+  border-right: 1px solid #7874ff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.l-nav__tab:last-child {
+  border-right: none;
+}
+
+.l-main {
+  padding: 5px;
+}

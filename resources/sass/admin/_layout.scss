@@ -1,0 +1,48 @@
+@use 'vars' as *;
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.l-container {
+	width: 80%;
+	height: 90%;
+	margin: 0 auto;
+	background-color: #f8f8ff;
+	border: 1px solid $c-main;
+	padding: 0 40px;
+}
+
+
+.l-nav {
+	height: 7%;
+	display: flex;
+	align-items: stretch;
+	border-bottom: 1px solid $c-main;
+}
+
+.l-nav__tab {
+	flex-grow: 1;
+	border-right: 1px solid $c-main;
+	padding: 10px;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+
+	&:last-child { border-right: none; }
+}
+
+
+.l-main {
+	padding: 5px;
+}

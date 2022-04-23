@@ -1,0 +1,71 @@
+@use 'vars' as *;
+
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: border-box; }
+
+body {
+	font-family: $f-main;
+	font-size: $f-size;
+	background: rgb(243,200,255);
+	background: linear-gradient(320deg, rgba(243,200,255,1) 0%, rgba(191,191,255,1) 100%);
+}
+
+a {
+	color: $c-main;
+	transition: color 0.2s;
+
+	&:hover {
+		color: $c-accent;
+		transition: color 0.2s;
+	}
+}
+
+h1 {
+	font-family: $f-title;
+	font-size: $f-size + 30px;
+	font-weight: normal;
+	margin-left: 40px;
+	margin-bottom: 10px;
+	display: inline-block;
+	position: relative;
+
+	span {
+		background: linear-gradient($c-main-light, $c-main-light) 0 80% / 100% 20px no-repeat;
+		height: 15px;
+	}
+}
+
+/* ---------------------------------------------------------------------------------- &FORMS ---- */
+
+.form__fieldset {
+	width: 60%;
+	margin: 30px auto;
+	border: 1px solid $c-main;
+	padding: 20px 40px;
+	text-align: center;
+}
+
+.form__label {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 5px;
+
+	&:first-of-type { margin-top: 0; }
+}
+
+.form__input {
+	border: 1px solid $c-main;
+	background-color: $c-main-lightest;
+
+	@include hover($focus: true);
+}
+
+.form__btns {
+	@extend .form__label;
+
+	&:first-of-type { margin-top: 20px; }
+}
+
+.form__btn {
+	@extend %btn;
+}
