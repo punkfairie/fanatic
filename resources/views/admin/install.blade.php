@@ -1,7 +1,8 @@
 @extends('admin.layout')
 
+@section('pg-title', 'Welcome to Fanatic!')
+
 @section('content')
-	<h1><span>Welcome to Fanatic!</span></h1>
 	<p>This is the installation page. You will only need to complete this once, but values can be
 		changed after installation.</p>
 

@@ -14,15 +14,25 @@
 
 		@auth
 			<nav class="l-nav">
-				<a class="l-nav__tab" href="#"><span class="l-nav__link">dashboard</span></a>
-				<a class="l-nav__tab" href="#"><span class="l-nav__link">joined</span></a>
-				<a class="l-nav__tab" href="#"><span class="l-nav__link">owned</span></a>
-				<a class="l-nav__tab" href="#"><span class="l-nav__link">collective</span></a>
+				<a href="{{ route('dashboard') }}" class="l-nav__tab">
+					<span class="l-nav__link">dashboard</span>
+				</a>
+
+				<a href="{{ route('joined.index') }}" class="l-nav__tab">
+					<span class="l-nav__link">joined</span>
+				</a>
+
+				<a href="#" class="l-nav__tab"><span class="l-nav__link">owned</span></a>
+				<a href="#" class="l-nav__tab"><span class="l-nav__link">collective</span></a>
 			</nav>
 		@endauth
 
 		<main class="l-main">
-			@yield('title')
+			<nav class="l-page-nav">
+				<h1><span>@yield('pg-title')</span></h1>
+
+				<div class="l-page-nav__links">@yield('pg-nav')</div>
+			</nav>
 
 			@if (session()->has('success'))
 				<p class="success">{{ session()->get('success') }}</p>

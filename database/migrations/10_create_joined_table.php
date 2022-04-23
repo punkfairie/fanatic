@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collectives', function (Blueprint $table) {
+        Schema::create('joined', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-			$table->string('title');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
+			$table->foreignId('collective_id')
+			      ->constrained('collectives')
+				  ->onUpdate('cascade')
+				  ->onDelete('cascade');
+			$table->string('url');
+			$table->string('subject');
+			$table->string('image');
+			$table->boolean('approved');
         });
     }
 
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('joined');
     }
 };

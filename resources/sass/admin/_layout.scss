@@ -42,6 +42,28 @@ body {
 }
 
 
+.l-page-nav {
+	width: 100%;
+	margin: 10px;
+	display: flex;
+	justify-content: stretch;
+	align-items: center;
+	column-gap: 20px;
+}
+
+.l-page-nav__links {
+	flex-grow: 1;
+	text-align: right;
+	margin-right: 40px;
+}
+
+.l-page-nav__link {
+	@extend %btn;
+	text-decoration: none;
+}
+
+
 .l-main {
 	padding: 10px 40px;
+	overflow: auto;
 }

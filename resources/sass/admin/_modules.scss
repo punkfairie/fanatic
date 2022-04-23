@@ -1,11 +1,15 @@
 @use 'vars' as *;
 @use 'sass:color';
 
-.error {
-	background-color: color.scale($c-green, $lightness: 50%);
-	border: 1px solid $c-green;
+@mixin msg($color) {
+	background-color: color.scale($color, $lightness: 70%);
+	border: 1px solid $color;
 
 	padding: 10px;
 	width: 60%;
 	margin: 10px auto;
 }
+
+.success { @include msg($c-green); }
+.warning { @include msg($c-yellow); }
+.error   { @include msg($c-red); }

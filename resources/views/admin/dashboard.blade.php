@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('pg-title', 'Dashboard')
+
 @section('content')
-	<h1><span>Dashboard</span></h1>
+
 @endsection
