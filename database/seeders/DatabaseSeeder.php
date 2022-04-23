@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+		DB::table('collectives')->insert([
+			'created_at' => now(),
+			'updated_at' => now(),
+			'name'       => 'marley',
+			'email'      => 'mar@m.punkfairie.net',
+			'title'      => 'aeipathy',
+			'password'   => bcrypt('marfan4'),
+		]);
+
         $this->call([
-			CategorySeeder::class
+			CategorySeeder::class,
+			JoinedSeeder::class
 		]);
     }
 }

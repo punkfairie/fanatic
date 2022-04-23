@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categorizable', function (Blueprint $table) {
+        Schema::create('categorizables', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 			$table->foreignId('category_id')
