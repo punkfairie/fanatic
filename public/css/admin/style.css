@@ -232,7 +232,7 @@ h1 span {
 
 .table__tbody td {
   text-align: center;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .table__tbody img {
@@ -349,4 +349,16 @@ body {
 }
 .pagination__item:not(:last-child), .pagination__item--disabled:not(:last-child), .pagination__item--active:not(:last-child) {
   border-right: none;
+}
+
+.text--error {
+  color: #e20000;
+}
+
+.text--warning {
+  color: #ebb000;
+}
+
+.text--success {
+  color: #30be00;
 }

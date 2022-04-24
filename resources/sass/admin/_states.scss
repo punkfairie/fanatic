@@ -1,2 +1,5 @@
 @use 'vars' as *;
 
+.text--error   { color: $c-red; }
+.text--warning { color: $c-yellow; }
+.text--success { color: $c-green; }
