@@ -123,3 +123,40 @@ h1 {
 .form__error {
 	color: $c-red;
 }
+
+/* --------------------------------------------------------------------------------- &TABLES ---- */
+
+.table {
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+.table tr, .table td, .table th {
+	border: 1px solid $c-main;
+}
+
+.table td {
+	min-width: 30px;
+}
+
+.table__thead {
+	font-weight: normal;
+	background-color: $c-main-light;
+	border-color: $c-main;
+	color: $c-main;
+}
+
+.table__thead th {
+	@extend .table__thead;
+	padding: 5px;
+}
+
+.table__tbody td {
+	text-align: center;
+	padding: 5px;
+}
+
+.table__tbody img {
+	max-height: 50px;
+	margin: auto;
+}

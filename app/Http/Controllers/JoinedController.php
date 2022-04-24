@@ -16,7 +16,10 @@ class JoinedController extends Controller
 
     public function index()
     {
-        return view('admin.joined.index');
+		$collective = auth_collective();
+        return view('admin.joined.index')->with([
+			'joined' => $collective->joined()->paginate(8),
+		]);
     }
 
     public function create()

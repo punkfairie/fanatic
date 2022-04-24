@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
 			'owned'  => 'App\Models\Owned',
 			'wish'   => 'App\Models\Wish',
 		]);
+
+		Paginator::defaultView('vendor.pagination.default');
+		Paginator::defaultSimpleView('vendor.pagination.simple-default');
     }
 }

@@ -13,3 +13,27 @@
 .success { @include msg($c-green); }
 .warning { @include msg($c-yellow); }
 .error   { @include msg($c-red); }
+
+/* ----------------------------------------------------------------------------- &PAGINATION ---- */
+
+.pagination {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+
+	a { text-decoration: none; }
+}
+
+.pagination__item {
+	@extend %btn;
+	margin: 0;
+
+	&:not(:last-child) { border-right: none; }
+}
+
+.pagination__item--disabled, .pagination__item--active {
+	@extend .pagination__item;
+	@extend %disabled;
+}
