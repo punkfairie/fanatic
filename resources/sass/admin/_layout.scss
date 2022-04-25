@@ -34,15 +34,27 @@ body {
 
 .l-nav__tab {
 	flex-grow: 1;
-	border-right: 1px solid $c-main;
 	padding: 10px;
-	
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-decoration: none;
 
-	&:last-child { border-right: none; }
+	// log out button
+	background: unset;
+	color: $c-main;
+	cursor: pointer;
+	transition: color 0.2s;
+	border: none;
+	border-left: 1px solid $c-main;
+
+	&:hover {
+		color: $c-accent;
+		transition: color 0.2s;
+	}
+
+	&:first-child { border-left: none; }
 }
 
 

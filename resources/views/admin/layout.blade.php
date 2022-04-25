@@ -14,16 +14,20 @@
 
 		@auth
 			<nav class="l-nav">
-				<a href="{{ route('dashboard') }}" class="l-nav__tab">
+				<a href="{{ route('admin.dashboard') }}" class="l-nav__tab">
 					<span class="l-nav__link">dashboard</span>
 				</a>
 
-				<a href="{{ route('joined.index') }}" class="l-nav__tab">
+				<a href="{{ route('admin.joined.index') }}" class="l-nav__tab">
 					<span class="l-nav__link">joined</span>
 				</a>
 
 				<a href="#" class="l-nav__tab"><span class="l-nav__link">owned</span></a>
 				<a href="#" class="l-nav__tab"><span class="l-nav__link">collective</span></a>
+
+				<x-admin.form.destroy :btnClass="'l-nav__tab'" :object="auth_collective()"
+				                      :route="'admin.sessions.destroy'" :adminNav="true"
+									  :label="'log out'" />
 			</nav>
 		@endauth
 

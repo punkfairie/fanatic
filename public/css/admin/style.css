@@ -271,15 +271,24 @@ body {
 
 .l-nav__tab {
   flex-grow: 1;
-  border-right: 1px solid #7874ff;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  background: unset;
+  color: #7874ff;
+  cursor: pointer;
+  transition: color 0.2s;
+  border: none;
+  border-left: 1px solid #7874ff;
 }
-.l-nav__tab:last-child {
-  border-right: none;
+.l-nav__tab:hover {
+  color: #de7cff;
+  transition: color 0.2s;
+}
+.l-nav__tab:first-child {
+  border-left: none;
 }
 
 .l-page-nav {
