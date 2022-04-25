@@ -8,7 +8,7 @@
 
 @section('content')
 
-<form action="{{ route('joined.store') }}" method="POST" enctype="multipart/form-data"
+<form action="{{ route('admin.joined.store') }}" method="POST" enctype="multipart/form-data"
       autocomplete="off">
 	@csrf
 
