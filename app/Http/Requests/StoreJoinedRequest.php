@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Joined;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreJoinedRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class StoreJoinedRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('create', Joined::class);
     }
 
     /**

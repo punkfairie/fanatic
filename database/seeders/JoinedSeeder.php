@@ -16,10 +16,9 @@ class JoinedSeeder extends Seeder
      */
     public function run()
     {
-		$cats = Category::all();
         Joined::factory()
 		      ->count(50)
-			  ->hasAttached($cats->random())
+			  ->hasAttached(Category::inRandomOrder()->limit(rand(0,10)))
 			  ->create();
     }
 }

@@ -32,18 +32,20 @@ Route::middleware('auth')->group(function () {
 	Route::get('/fanatic',    [CollectiveController::class, 'dashboard'])->name('admin.dashboard');
 	Route::delete('/fanatic', [SessionsController::class, 'destroy'])->name('admin.sessions.destroy');
 
-	Route::get('/fanatic/joined',             [JoinedController::class, 'index'])
+	Route::get('/fanatic/joined',                    [JoinedController::class, 'index'])
 	     ->name('admin.joined.index');
-	Route::get('/fanatic/joined/create',      [JoinedController::class, 'create'])
+	Route::get('/fanatic/joined/create',             [JoinedController::class, 'create'])
 	     ->name('admin.joined.create');
-	Route::post('/fanatic/joined',            [JoinedController::class, 'store'])
+	Route::post('/fanatic/joined',                   [JoinedController::class, 'store'])
 	     ->name('admin.joined.store');
-	Route::get('/admin/joined/{joined}',      [JoinedController::class, 'show'])
+    Route::patch('/fanatic/joined/{joined}/approve', [JoinedController::class, 'approve'])
+         ->name('admin.joined.approve');
+	Route::get('/fanatic/joined/{joined}',           [JoinedController::class, 'show'])
 	     ->name('admin.joined.show');
-	Route::get('/admin/joined/{joined}/edit', [JoinedController::class, 'edit'])
+	Route::get('/fanatic/joined/{joined}/edit',      [JoinedController::class, 'edit'])
 	     ->name('admin.joined.edit');
-	Route::patch('/admin/joined/{joined}',    [JoinedController::class, 'update'])
+	Route::patch('/fanatic/joined/{joined}',         [JoinedController::class, 'update'])
 	     ->name('admin.joined.update');
-	Route::delete('/admin/joined/{joined}',   [JoinedController::class, 'destroy'])
+	Route::delete('/fanatic/joined/{joined}',        [JoinedController::class, 'destroy'])
 	     ->name('admin.joined.destroy');
 });

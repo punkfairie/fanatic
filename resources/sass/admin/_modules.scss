@@ -37,3 +37,10 @@
 	@extend .pagination__item;
 	@extend %disabled;
 }
+
+/* ----------------------------------------------------------------------------------- &BTNS ---- */
+
+.btn--table {
+    @extend %btn;
+    margin: 0;
+}

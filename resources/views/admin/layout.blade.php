@@ -8,6 +8,8 @@
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
 	<link rel="stylesheet" href="/css/admin/style.css">
+
+    <livewire:styles />
 </head>
 <body>
 	<div class="l-container">
@@ -54,5 +56,7 @@
 		</main>
 
 	</div>
+
+    <livewire:scripts />
 </body>
 </html>

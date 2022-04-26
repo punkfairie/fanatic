@@ -17,9 +17,7 @@ class JoinedController extends Controller
     public function index()
     {
 		$collective = auth_collective();
-        return view('admin.joined.index')->with([
-			'joined' => $collective->joined()->paginate(8),
-		]);
+        return view('admin.joined.index');
     }
 
     public function create()
@@ -40,7 +38,13 @@ class JoinedController extends Controller
 		]);
 
 		Joined::store($validated);
-		return redirect()->route('joined.index')->with('success', 'Fanlisting added.');
+		return redirect()->route('admin.joined.index')->with('success', 'Fanlisting added.');
+    }
+
+    public function approve(Joined $joined)
+    {
+        $joined->approve();
+        return redirect()->route('admin.joined.index')->with('success', 'Fanlisting approved.');
     }
 
     public function show(Joined $joined)
