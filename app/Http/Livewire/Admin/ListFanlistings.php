@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Joined;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,12 +16,20 @@ class ListFanlistings extends Component
     {
         if ($this->class == 'joined') {
             $fanlistings = auth_collective()->joined()->paginate(8);
-        } else if ($this->class == 'owned') {
-            //
+        } elseif ($this->class == 'owned') {
+            // TODO: add owned class
         }
 
         return view('livewire.admin.list-fanlistings', [
             'fanlistings' => $fanlistings,
         ]);
+    }
+
+    public function approve(Joined $fl)
+    {
+        if ($fl->approved == false) {
+            $fl->approved = true;
+            $fl->save();
+        }
     }
 }

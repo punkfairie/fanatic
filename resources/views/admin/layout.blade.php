@@ -41,15 +41,15 @@
 			</nav>
 
 			@if (session()->has('success'))
-				<p class="success">{{ session()->get('success') }}</p>
+				<p class="success alert">{{ session()->get('success') }}</p>
 			@endif
 
 			@if (session()->has('error'))
-				<p class="error">{{ session()->get('error') }}</p>
+				<p class="error alert">{{ session()->get('error') }}</p>
 			@endif
 
 			@if (session()->has('warning'))
-				<p class="warning">{{ session()->get('warning') }}</p>
+				<p class="warning alert">{{ session()->get('warning') }}</p>
 			@endif
 
 			@yield('content')
@@ -58,5 +58,9 @@
 	</div>
 
     <livewire:scripts />
+    <script>
+        var timeout = 3000; // in miliseconds (3*1000)
+        $('.alert').delay(timeout).fadeOut(300);
+    </script>
 </body>
 </html>

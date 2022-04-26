@@ -41,12 +41,6 @@ class JoinedController extends Controller
 		return redirect()->route('admin.joined.index')->with('success', 'Fanlisting added.');
     }
 
-    public function approve(Joined $joined)
-    {
-        $joined->approve();
-        return redirect()->route('admin.joined.index')->with('success', 'Fanlisting approved.');
-    }
-
     public function show(Joined $joined)
     {
         //

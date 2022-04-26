@@ -23,10 +23,10 @@
 					<td><img src="{{ $fl->image }}"></td>
 
 					<td>
-                        @if ($class == 'joined')
-                            <a href="{{ route('admin.joined.approve', $fl) }}" class="btn--table">
+                        @if ($class == 'joined' && $fl->approved == false)
+                            <button wire:click="approve({{ $fl }})" class="btn--table">
                                 Approve
-                            </a>
+                            </button>
                         @elseif ($class == 'owned')
                             <a href="#" class="btn--table">View</a>
                         @endif
