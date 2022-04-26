@@ -38,8 +38,6 @@ Route::middleware('auth')->group(function () {
          ->name('admin.joined.create');
     Route::post('/fanatic/joined', [JoinedController::class, 'store'])
          ->name('admin.joined.store');
-    Route::get('/fanatic/joined/{joined}', [JoinedController::class, 'show'])
-         ->name('admin.joined.show');
     Route::get('/fanatic/joined/{joined}/edit', [JoinedController::class, 'edit'])
          ->name('admin.joined.edit');
     Route::patch('/fanatic/joined/{joined}', [JoinedController::class, 'update'])
