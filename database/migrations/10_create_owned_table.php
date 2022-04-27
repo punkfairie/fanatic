@@ -10,17 +10,22 @@ return new class() extends Migration {
      */
     public function up()
     {
-        Schema::create('joined', function (Blueprint $table) {
+        Schema::create('owned', function (Blueprint $table) {
             $table->id();
             $table->timestamps(6);
             $table->foreignId('collective_id')
                   ->constrained('collectives')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->string('url');
             $table->string('subject');
+            $table->enum('status', ['current', 'upcoming']);
+            $table->string('slug')->nullable();
+            $table->string('title')->nullable();
             $table->string('image')->nullable();
-            $table->boolean('approved');
+            $table->timestamp('opened', 6)->nullable();
+            $table->boolean('hold_member_updates')->default(true);
+            $table->boolean('notify_pending')->default(true);
+            $table->string('sort_by')->default('country');
         });
     }
 
@@ -29,6 +34,6 @@ return new class() extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('joined');
+        Schema::dropIfExists('owned');
     }
 };
