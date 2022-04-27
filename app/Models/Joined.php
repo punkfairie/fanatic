@@ -84,4 +84,12 @@ class Joined extends Model
 
         return $this;
     }
+
+    /* ------------------------------------------------------------------------------ remove ---- */
+
+    public function remove() : void
+    {
+        $this->categories()->detach();
+        $this->delete();
+    }
 }
