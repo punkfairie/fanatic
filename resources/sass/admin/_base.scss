@@ -75,6 +75,14 @@ h1 {
 	}
 }
 
+.form__input--search {
+    @extend .form__input;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
 .form__checkbox {
 	@extend .form__label;
 }

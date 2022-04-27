@@ -11,14 +11,20 @@ class ListFanlistings extends Component
     use WithPagination;
 
     public string $class;
+    public string $searchTerm = '';
+
+    public function mount($class)
+    {
+        $this->class = strtolower($class);
+    }
 
     public function render()
     {
-        if ($this->class == 'joined') {
-            $fanlistings = auth_collective()->joined()->paginate(8);
-        } elseif ($this->class == 'owned') {
-            // TODO: add owned class
-        }
+        $search      = '%' . $this->searchTerm . '%';
+        $fanlistings = auth_collective()->{$this->class}()
+                                        ->where('subject', 'like', $search)
+                                        ->paginate(PER_PAGE);
+        $fanlistings->load(['categories']);
 
         return view('livewire.admin.list-fanlistings', [
             'fanlistings' => $fanlistings,

@@ -115,7 +115,7 @@ h1 span {
   margin-top: 0;
 }
 
-.form__input, .form__select {
+.form__input, .form__input--search, .form__select {
   border: 1px solid #7874ff;
   background-color: #e4e3ff;
   border-color: #7874ff;
@@ -123,13 +123,13 @@ h1 span {
   color: #7874ff;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
 }
-.form__input:hover, .form__select:hover {
+.form__input:hover, .form__input--search:hover, .form__select:hover {
   border-color: #de7cff;
   background-color: #f8e5ff;
   color: #de7cff;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
 }
-.form__input:focus, .form__select:focus {
+.form__input:focus, .form__input--search:focus, .form__select:focus {
   border-color: #de7cff;
   background-color: #f8e5ff;
   color: #de7cff;
@@ -153,6 +153,13 @@ h1 span {
   color: #de7cff;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
 }
+.form__input--search {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
 .form__input--checkbox {
   -webkit-appearance: none;
      -moz-appearance: none;

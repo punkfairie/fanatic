@@ -1,4 +1,6 @@
 <div>
+    <input type="text" name="search" placeholder="Search fanlistings..." class="form__input--search"
+           wire:model="searchTerm" />
     <table class="table">
 		<thead class="table__thead">
 			<tr>
