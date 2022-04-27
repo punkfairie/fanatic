@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use App\Models\Joined;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class StoreJoinedRequest extends FormRequest
 {
@@ -27,11 +26,11 @@ class StoreJoinedRequest extends FormRequest
     {
         return [
             'categories'   => ['required', 'array'],
-			'categories.*' => [            'numeric', 'exists:categories,id'],
-			'url'          => ['required', 'url'],
-			'subject'      => ['required', 'string'],
-			'image'        => ['nullable', 'image'],
-			'approved'     => ['nullable', 'boolean'],
+            'categories.*' => ['numeric', 'exists:categories,id'],
+            'url'          => ['required', 'url'],
+            'subject'      => ['required', 'string'],
+            'image'        => ['nullable', 'image'],
+            'approved'     => ['nullable', 'boolean'],
         ];
     }
 }

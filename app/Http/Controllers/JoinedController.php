@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreJoinedRequest;
 use App\Http\Requests\UpdateJoinedRequest;
-use App\Models\Category;
 use App\Models\Joined;
 
 class JoinedController extends Controller
@@ -26,15 +25,7 @@ class JoinedController extends Controller
 
     public function store(StoreJoinedRequest $request)
     {
-        $validated = $request->safe()->only([
-            'categories',
-            'url',
-            'subject',
-            'image',
-            'approved',
-        ]);
-
-        Joined::store($validated);
+        Joined::store($request->validated());
 
         return redirect()->route('admin.joined.index')->with('success', 'Fanlisting added.');
     }
@@ -46,6 +37,9 @@ class JoinedController extends Controller
 
     public function update(UpdateJoinedRequest $request, Joined $joined)
     {
+        $joined->patch($request->validated());
+
+        return redirect()->route('admin.joined.index')->with('success', 'Fanlisting updated.');
     }
 
     public function destroy(Joined $joined)

@@ -8,7 +8,7 @@
 
 @section('content')
 
-<form action="{{ route('admin.joined.edit', $joined) }}" method="POST" autocomplete="off">
+<form action="{{ route('admin.joined.update', $joined) }}" method="POST" autocomplete="off">
     @csrf
     @method('PATCH')
 
