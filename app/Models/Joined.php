@@ -50,10 +50,14 @@ class Joined extends Model
     public static function store(array $validated) : Joined
     {
         $validated['image']    = $validated['image'] ?? null;
-        $validated['image']    = self::imagePath($validated['image']);
-        $validated['approved'] = $validated['approved'] ?? false;
 
-        $joined = auth_collective()->joined()->create($validated);
+        $joined           = new static();
+        $joined->url      = $validated['url'];
+        $joined->subject  = $validated['subject'];
+        $joined->image    = self::imagePath($validated['image']);
+        $joined->approved = $validated['approved'] ?? false;
+
+        auth_collective()->joined()->save($joined);
         $joined->categories()->sync($validated['categories']);
 
         return $joined;
