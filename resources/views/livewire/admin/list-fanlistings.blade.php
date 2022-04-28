@@ -30,7 +30,7 @@
                                 Approve
                             </button>
                         @elseif ($class == 'owned')
-                            <a href="#" class="btn--table">View</a>
+                            <a href="{{ route('admin.owned.show', $fl) }}" class="btn--table">View</a>
                         @endif
                     </td>
 
