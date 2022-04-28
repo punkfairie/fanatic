@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreOwnedRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreOwnedRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->user()->can('create', Joined::class);
     }
 
     /**
@@ -24,7 +25,15 @@ class StoreOwnedRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'categories'          => ['required', 'array'],
+            'categories.*'        => ['numeric', 'exists:categories,id'],
+            'subject'             => ['required', 'string'],
+            'status'              => ['required', 'string', Rule::in(['current', 'upcoming'])],
+            'slug'                => ['required', 'alpha_dash'],
+            'title'               => ['nullable', 'string'],
+            'image'               => ['nullable', 'image'],
+            'date_opened'         => ['nullable', 'date'],
+            'hold_member_updates' => ['nullable', 'boolean'],
         ];
     }
 }

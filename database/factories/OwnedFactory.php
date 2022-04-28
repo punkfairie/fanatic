@@ -37,7 +37,6 @@ class OwnedFactory extends Factory
             'title'               => $this->faker->words(3, true),
             'image'               => $this->faker->imageUrl(),
             'hold_member_updates' => $this->faker->boolean(),
-            'notify_pending'      => $this->faker->boolean(),
             'sort_by'             => 'country',
         ];
     }
