@@ -20,7 +20,6 @@
         <x-form.file name="image" />
         <x-form.date name="date_opened" :label="'Date opened:'" />
         <x-form.checkbox name="hold_member_updates" :label="'Hold member updates?'" />
-        <x-form.checkbox name="notify_pending" :label="'Notify when you have pending members?'" />
 
         <x-form.buttons />
     </fieldset>

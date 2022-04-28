@@ -24,7 +24,6 @@ return new class() extends Migration {
             $table->string('image')->nullable();
             $table->timestamp('opened', 6)->nullable();
             $table->boolean('hold_member_updates')->default(true);
-            $table->boolean('notify_pending')->default(true);
             $table->string('sort_by')->default('country');
         });
     }
