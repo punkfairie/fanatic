@@ -8,14 +8,14 @@ use function Pest\Faker\faker;
 uses()->group('owned', 'admin');
 
 beforeEach(function () {
-    $this->user = Collective::first();
+    $this->user    = Collective::first();
     $this->request = [
         'categories'          => [rand(1, 57), rand(1, 57), rand(1, 57)],
         'subject'             => faker()->word,
         'status'              => 'current',
         'slug'                => faker()->slug(2),
         'title'               => faker()->sentence(),
-        'date_opened'         => faker()->dateTimeThisMonth(),
+        'opened'              => faker()->dateTimeThisMonth(),
         'hold_member_updates' => faker()->boolean(),
         'notify_pending'      => faker()->boolean(),
     ];
@@ -48,29 +48,29 @@ it('fails missing categories', function () {
 
 it('fails non-array categories', function () {
     $this->request['categories'] = 'This is not an array.';
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                    = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
 
 it('fails empty categories array', function () {
     $this->request['categories'] = [];
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                    = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
 
 it('fails non-numeric category item', function () {
     $this->request['categories'][] = 'a';
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                      = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
 
 it('fails non-existant category', function () {
-    $invalidCat = (Category::all()->count()) + 10;
+    $invalidCat                    = (Category::all()->count()) + 10;
     $this->request['categories'][] = $invalidCat;
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                      = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
@@ -84,7 +84,7 @@ it('fails missing subject', function () {
 
 it('fails non-string subject', function () {
     $this->request['subject'] = 39502;
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                 = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
@@ -98,7 +98,7 @@ it('fails missing status', function () {
 
 it('fails non-valid status', function () {
     $this->request['status'] = 'This is not a correct status.';
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
@@ -112,7 +112,7 @@ it('fails missing slug', function () {
 
 it('fails non-valid slug format', function () {
     $this->request['slug'] = 'This is not a valid slug.';
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response              = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
@@ -126,21 +126,21 @@ it('allows null title', function () {
 
 it('fails non-string title', function () {
     $this->request['title'] = 494920;
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response               = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
 
-it('allows null date_opened', function () {
-    unset($this->request['date_opened']);
+it('allows null opened', function () {
+    unset($this->request['opened']);
     $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertValid();
 });
 
-it('fails non-date date_opened', function () {
-    $this->request['date_opened'] = 'This is not a date.';
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+it('fails non-date opened', function () {
+    $this->request['opened'] = 'This is not a date.';
+    $response                = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });
@@ -154,7 +154,7 @@ it('allows null hold_member_updates', function () {
 
 it('fails non-bool hold_member_updates', function () {
     $this->request['holds_member_updates'] = 'This is not a boolean.';
-    $response = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
+    $response                              = $this->actingAs($this->user)->post('/fanatic/owned', $this->request);
 
     $response->assertInvalid();
 });

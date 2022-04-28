@@ -45,6 +45,7 @@ class JoinedController extends Controller
     public function destroy(Joined $joined)
     {
         $joined->remove();
+
         return redirect()->route('admin.joined.index')->with('success', 'Fanlisting removed.');
     }
 }

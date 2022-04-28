@@ -8,10 +8,10 @@ trait Imageable
 {
     public static function imagePath($image) : ?string
     {
-        $path = strtolower(static::class);
+        $path = strtolower(substr(strrchr(__CLASS__, '\\'), 1));
 
         if (isset($image)) {
-            return Storage::putFile($path, $image);
+            return $image->storePublicly($path, 'public');
         } else {
             return null;
         }

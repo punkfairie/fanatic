@@ -8,7 +8,8 @@
 
 @section('content')
 
-<form action="{{ route('admin.owned.store') }}" method="POST" autocomplete="off">
+<form action="{{ route('admin.owned.store') }}" method="POST" autocomplete="off"
+      enctype="multipart/form-data">
     @csrf
 
     <fieldset class="form__fieldset">
@@ -18,7 +19,7 @@
         <x-form.text name="slug" :label="'Slug:'" required />
         <x-form.text name="title" :label="'Title:'" />
         <x-form.file name="image" />
-        <x-form.date name="date_opened" :label="'Date opened:'" />
+        <x-form.date name="opened" :label="'Date opened:'" />
         <x-form.checkbox name="hold_member_updates" :label="'Hold member updates?'" />
 
         <x-form.buttons />

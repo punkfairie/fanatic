@@ -32,7 +32,7 @@ class StoreOwnedRequest extends FormRequest
             'slug'                => ['required', 'alpha_dash'],
             'title'               => ['nullable', 'string'],
             'image'               => ['nullable', 'image'],
-            'date_opened'         => ['nullable', 'date'],
+            'opened'              => ['nullable', 'date'],
             'hold_member_updates' => ['nullable', 'boolean'],
         ];
     }

@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Traits\Categorizable;
 use App\Traits\Imageable;
 use App\Traits\Ownable;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,15 +33,6 @@ class Joined extends Model
     // injected by trait: collective (belongsTo)
 
     // injected by trait: categories (morph many-to-many)
-
-    /* -------------------------------------------------------------------------- attributes ---- */
-
-    protected function approved() : Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => isset($value) ? $value = $value : $value = false,
-        );
-    }
 
     /* ------------------------------------------------------------------------------ joined ---- */
 

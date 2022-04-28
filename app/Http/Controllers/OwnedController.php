@@ -35,6 +35,9 @@ class OwnedController extends Controller
      */
     public function store(StoreOwnedRequest $request)
     {
+        Owned::store($request->validated());
+
+        return redirect()->route('admin.owned.index')->with('success', 'Fanlisting added!');
     }
 
     /**
