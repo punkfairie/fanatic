@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\Categorizable;
 use App\Traits\Imageable;
 use App\Traits\Ownable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,6 +28,15 @@ class Owned extends Model
     // injected by trait: collective (belongsTo)
 
     // injected by trait: categories (many-to-many polymorphic)
+
+    /* --------------------------------------------------------------------------------- url ---- */
+
+    protected function url() : Attribute
+    {
+        return Attribute::make(
+            get: fn () => "/{$this->slug}",
+        );
+    }
 
     /* ------------------------------------------------------------------------------- store ---- */
 
