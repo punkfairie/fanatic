@@ -2,6 +2,8 @@
 
 use App\Models\Collective;
 
+uses()->group('joined', 'admin');
+
 it('gets joined index', function () {
     $response = $this->actingAs(Collective::first())->get('/fanatic/joined');
     $response->assertViewIs('admin.joined.index');

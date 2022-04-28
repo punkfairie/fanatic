@@ -4,10 +4,12 @@ use App\Models\Category;
 use App\Models\Collective;
 use function Pest\Faker\faker;
 
+uses()->group('joined', 'admin');
+
 beforeEach(function () {
     $this->user = Collective::first();
     $this->request = [
-        'categories' => [rand(1,57), rand(1,57), rand(1,57)],
+        'categories' => [rand(1, 57), rand(1, 57), rand(1, 57)],
         'url'        => faker()->url,
         'subject'    => faker()->word,
         'approved'   => faker()->boolean,
@@ -16,11 +18,13 @@ beforeEach(function () {
 
 it('gets joined create', function () {
     $response = $this->actingAs($this->user)->get('fanatic/joined/create');
+
     $response->assertViewIs('admin.joined.create');
 });
 
 it('does not show create to guests', function () {
     $response = $this->get('/fanatic/joined/create');
+
     $response->assertRedirect('/fanatic/login');
 });
 
@@ -38,7 +42,7 @@ it('fails missing categories', function () {
 });
 
 it('fails incorrect category format', function () {
-    $this->request['categories'] = rand(1,57);
+    $this->request['categories'] = rand(1, 57);
     $response = $this->actingAs($this->user)->post('/fanatic/joined', $this->request);
 
     $response->assertInvalid();
