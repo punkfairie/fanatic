@@ -1,4 +1,4 @@
-{{-- expected attributes: name, id --}}
+{{-- expected attributes: name --}}
 @props([
     'prevCats'    => false,
     'labelClass'  => '',
@@ -10,7 +10,7 @@
     use App\Models\Category;
     $categories = Category::all();
 
-    $id = rtrim($attributes['name'], '[]');
+    $id = $attributes['id'] ?? rtrim($attributes['name'], '[]');
 
 	$selected = null;
 	$name = rtrim($attributes['name'], '[]');

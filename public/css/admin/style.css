@@ -118,6 +118,7 @@ h1 span {
 .form__input, .form__input--search, .form__select {
   border: 1px solid #7874ff;
   background-color: #e4e3ff;
+  width: 50%;
   border-color: #7874ff;
   background-color: #e4e3ff;
   color: #7874ff;
@@ -142,6 +143,7 @@ h1 span {
   color: #7874ff;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
   padding: 5px;
+  width: 50%;
 }
 .form__input--file:hover {
   border-color: #de7cff;

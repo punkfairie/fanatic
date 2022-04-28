@@ -57,6 +57,7 @@ h1 {
 .form__input {
 	border: 1px solid $c-main;
 	background-color: $c-main-lightest;
+    width: 50%;
 
 	@include hover;
 }
@@ -69,6 +70,7 @@ h1 {
 	border: 1px solid $c-main;
 	@include hover($bg: false);
 	padding: 5px;
+    width: 50%;
 
 	&::file-selector-button {
 		@extend %btn;

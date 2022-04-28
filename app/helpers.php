@@ -2,6 +2,10 @@
 
 define('PER_PAGE', 7);
 
+define('DATE_FMT', 'j F Y');
+define('FORM_DATE_FMT', 'Y-m-d');
+define('DATE_FMT_SHORT', 'j M y');
+
 /* ------------------------------------------------------------------------- auth_collective ---- */
 
 // returns the currently authenticated collective
