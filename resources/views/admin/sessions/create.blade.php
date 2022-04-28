@@ -24,8 +24,8 @@
 		</div>
 
 		<div class="form__btns">
-			<input type="submit" class="form__btn" value="Submit">
-			<input type="reset" class="input__btn" value="Reset">
+			<input type="submit" class="input--btn" value="Submit">
+			<input type="reset" class="input--btn" value="Reset">
 		</div>
 	</fieldset>
 </form>

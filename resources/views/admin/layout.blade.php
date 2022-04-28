@@ -24,7 +24,9 @@
 					<span class="l-nav__link">joined</span>
 				</a>
 
-				<a href="#" class="l-nav__tab"><span class="l-nav__link">owned</span></a>
+				<a href="{{ route('admin.owned.index') }}" class="l-nav__tab">
+                    <span class="l-nav__link">owned</span>
+                </a>
 				<a href="#" class="l-nav__tab"><span class="l-nav__link">collective</span></a>
 
 				<x-admin.form.destroy :btnClass="'l-nav__tab'" :object="auth_collective()"

@@ -3,22 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class Collective extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens;
+    use Notifiable;
 
     /* @var array<int, string> */
-	
+
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
-
 
     /* @var array<int, string> */
 
@@ -33,33 +34,38 @@ class Collective extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-/* --------------------------------------------------------------------------- relationships ---- */
+    /* ----------------------------------------------------------------------- relationships ---- */
 
-	public function joined()
-	{
-		return $this->hasMany(Joined::class);
-	}
+    public function joined() : HasMany
+    {
+        return $this->hasMany(Joined::class);
+    }
 
-/* -------------------------------------------------------------------------------- password ---- */
+    public function owned() : HasMany
+    {
+        return $this->hasMany(Owned::class);
+    }
 
-	protected function password() : Attribute
-	{
-		return Attribute::make(
-			set: fn ($value) => bcrypt($value),
-		);
-	}
+    /* ---------------------------------------------------------------------------- password ---- */
 
-/* ----------------------------------------------------------------------------------- store ---- */
+    protected function password() : Attribute
+    {
+        return Attribute::make(
+            set: fn ($value) => bcrypt($value),
+        );
+    }
 
-	public static function store(array $validated) : Collective
-	{
-		$collective = new Collective();
-		$collective->title    = $validated['title'];
-		$collective->name     = $validated['name'];
-		$collective->email    = $validated['email'];
-		$collective->password = $validated['password'];
-		$collective->save();
+    /* ------------------------------------------------------------------------------- store ---- */
 
-		return $collective;
-	}
+    public static function store(array $validated) : Collective
+    {
+        $collective           = new Collective();
+        $collective->title    = $validated['title'];
+        $collective->name     = $validated['name'];
+        $collective->email    = $validated['email'];
+        $collective->password = $validated['password'];
+        $collective->save();
+
+        return $collective;
+    }
 }

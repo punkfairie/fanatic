@@ -13,7 +13,7 @@
   -webkit-transition: background-color 0.4s, border-color 0.4s, color 0.4s;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
 }
-.pagination__item, .pagination__item--disabled, .pagination__item--active, .btn--table, .l-page-nav__link, .form__input--file::file-selector-button, .form__btn {
+.pagination__item, .pagination__item--disabled, .pagination__item--active, .btn--table, .l-page-nav__link, .form__input--file::file-selector-button, .input--btn {
   border: 1px solid #7874ff;
   padding: 5px 10px;
   margin-right: 5px;
@@ -32,7 +32,7 @@
   -webkit-transition: background-color 0.4s, border-color 0.4s, color 0.4s;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
 }
-.pagination__item:hover, .pagination__item--disabled:hover, .pagination__item--active:hover, .btn--table:hover, .l-page-nav__link:hover, .form__input--file:hover::file-selector-button, .form__btn:hover {
+.pagination__item:hover, .pagination__item--disabled:hover, .pagination__item--active:hover, .btn--table:hover, .l-page-nav__link:hover, .form__input--file:hover::file-selector-button, .input--btn:hover {
   border-color: #de7cff;
   background-color: #f8e5ff;
   color: #de7cff;
@@ -45,7 +45,7 @@
   -webkit-transition: background-color 0.4s, border-color 0.4s, color 0.4s;
   transition: background-color 0.4s, border-color 0.4s, color 0.4s;
 }
-.pagination__item:focus, .pagination__item--disabled:focus, .pagination__item--active:focus, .btn--table:focus, .l-page-nav__link:focus, .form__input--file:focus::file-selector-button, .form__btn:focus {
+.pagination__item:focus, .pagination__item--disabled:focus, .pagination__item--active:focus, .btn--table:focus, .l-page-nav__link:focus, .form__input--file:focus::file-selector-button, .input--btn:focus {
   border-color: #de7cff;
   background-color: #f8e5ff;
   color: #de7cff;

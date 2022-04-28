@@ -35,7 +35,7 @@ class OwnedFactory extends Factory
             'status'              => $statuses->random(),
             'slug'                => $this->faker->slug(2, false),
             'title'               => $this->faker->words(3, true),
-            'image'               => $this->faker->image(),
+            'image'               => $this->faker->imageUrl(),
             'hold_member_updates' => $this->faker->boolean(),
             'notify_pending'      => $this->faker->boolean(),
             'sort_by'             => 'country',

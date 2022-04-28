@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\Categorizable;
 use App\Traits\Imageable;
+use App\Traits\Ownable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Joined extends Model
 {
     use HasFactory;
+    use Ownable;
     use Categorizable;
     use Imageable;
 
@@ -29,10 +31,7 @@ class Joined extends Model
 
     /* ----------------------------------------------------------------------- relationships ---- */
 
-    public function collective()
-    {
-        return $this->belongsTo(Collective::class);
-    }
+    // injected by trait: collective (belongsTo)
 
     // injected by trait: categories (morph many-to-many)
 

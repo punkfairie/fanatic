@@ -15,7 +15,7 @@ class OwnedController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.owned.index');
     }
 
     /**
@@ -25,62 +25,50 @@ class OwnedController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOwnedRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreOwnedRequest $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Owned  $owned
      * @return \Illuminate\Http\Response
      */
     public function show(Owned $owned)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Owned  $owned
      * @return \Illuminate\Http\Response
      */
     public function edit(Owned $owned)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOwnedRequest  $request
-     * @param  \App\Models\Owned  $owned
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateOwnedRequest $request, Owned $owned)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Owned  $owned
      * @return \Illuminate\Http\Response
      */
     public function destroy(Owned $owned)
     {
-        //
     }
 }

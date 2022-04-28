@@ -8,8 +8,8 @@
 ])
 
 <div class="form__btns {{ $divClass }}">
-    <input type="submit" class="form__btn {{ $submitClass }} {{ $btnClass }}"
+    <input type="submit" class="input--btn {{ $submitClass }} {{ $btnClass }}"
            value="{{ $submitValue }}">
-    <input type="reset"  class="form__btn {{ $resetClass }}  {{ $btnClass }}"
+    <input type="reset"  class="input--btn {{ $resetClass }}  {{ $btnClass }}"
            value="{{ $resetValue }}">
 </div>
