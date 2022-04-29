@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             JoinedSeeder::class,
             OwnedSeeder::class,
+            CountrySeeder::class,
+            MemberSeeder::class,
         ]);
     }
 }
