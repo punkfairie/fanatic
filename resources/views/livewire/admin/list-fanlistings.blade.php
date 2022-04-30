@@ -30,7 +30,7 @@
                         Approve
                     </button>
                     @elseif ($class == 'owned')
-                    <a href="{{ route('admin.owned.show', $fl) }}" class="btn--table">View</a>
+                    <a href="{{ route('admin.owned.manage', $fl) }}" class="btn--table">Manage</a>
                     @endif
                 </td>
 
@@ -39,7 +39,8 @@
                 </td>
 
                 <td>
-                    <x-admin.form.destroy :object="$fl" :route="'admin.'.$class.'.destroy'" :btnClass="'btn--table'" />
+                    <x-admin.form.destroy :object="$fl" :route="'admin.'.$class.'.destroy'"
+                                          :btnClass="'btn--table'" />
                 </td>
             </tr>
             @endforeach

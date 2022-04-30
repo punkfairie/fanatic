@@ -41,11 +41,11 @@ class OwnedController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Manage the specified resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Owned $owned)
+    public function manage(Owned $owned)
     {
     }
 

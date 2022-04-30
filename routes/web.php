@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/fanatic/owned', [OwnedController::class, 'index'])->name('admin.owned.index');
     Route::get('/fanatic/owned/create', [OwnedController::class, 'create'])->name('admin.owned.create');
     Route::post('/fanatic/owned', [OwnedController::class, 'store'])->name('admin.owned.store');
-    Route::get('/fanatic/owned/{owned}', [OwnedController::class, 'show'])->name('admin.owned.show');
+    Route::get('/fanatic/owned/{owned}', [OwnedController::class, 'manage'])->name('admin.owned.manage');
     Route::get('/fanatic/owned/{owned}/edit', [OwnedController::class, 'edit'])->name('admin.owned.edit');
     Route::patch('/fanatic/owned/{owned}', [OwnedController::class, 'update'])->name('admin.owned.update');
     Route::delete('/fanatic/owned/{owned}', [OwnedController::class, 'destroy'])->name('admin.owned.destroy');
